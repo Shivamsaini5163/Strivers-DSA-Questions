@@ -10,8 +10,8 @@ public class Sort_Characters_By_Frequency {
     }
     public static String frequencySort(String s) {
         StringBuilder sb=new StringBuilder();
-        HashMap<Character,Integer> map=new LinkedHashMap<>();
-        List<Character>[] arr=new ArrayList[s.length()+1];  //array as bucket as frequency (using bucket sort)
+        HashMap<Character,Integer> map=new HashMap<>();
+        ArrayList<Character>[] arr=new ArrayList[s.length()+1];  //array as bucket as frequency (using bucket sort)
         for (char ch:s.toCharArray()) {
             map.put(ch,map.getOrDefault(ch,0)+1);
         }
