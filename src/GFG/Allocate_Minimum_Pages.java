@@ -13,7 +13,7 @@ public class Allocate_Minimum_Pages {
             h+=num;
         }
         for(int i=l;i<=h;i++){
-            if(countStudents(i,arr)<=k) return i;
+            if(countStudents(i,arr)<=k) return i;   //we can further split those student if counting students less than k so this is also valid condition
         }
         return -1;
     }
