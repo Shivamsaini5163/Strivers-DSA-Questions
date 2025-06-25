@@ -1,9 +1,26 @@
 package Leetcode;
+import java.util.Stack;
 //leetcode 206
-//Time and Space Complexity =>  O(N) O(1)
 public class Reverse_Linked_List {
+    //Brute Force
+    //Time and Space Complexity =>  O(2*N) O(N)
+    public ListNode reverseList(ListNode head){
+        ListNode temp = head;
+        Stack<Integer> stack = new Stack<>();
+        while (temp != null) {
+            stack.push(temp.val);
+            temp = temp.next;
+        }
+        temp = head;
+        while (temp != null) {
+            temp.val = stack.pop();
+            temp = temp.next;
+        }
+        return head;
+    }
     // using iteration and 3 pointers method
-    public ListNode reverseList(ListNode head) {
+    public ListNode reverseList2(ListNode head) {
+        //Time and Space Complexity =>  O(N) O(1)
         if(head==null||head.next==null){
             return head;
         }
@@ -21,7 +38,8 @@ public class Reverse_Linked_List {
         return head;
     }
     // using recursion
-    public ListNode reverseList2(ListNode head) {
+    public ListNode reverseList3(ListNode head) {
+        //Time and Space Complexity =>  O(N) O(1)
         if (head==null||head.next==null){
             return head;
         }
