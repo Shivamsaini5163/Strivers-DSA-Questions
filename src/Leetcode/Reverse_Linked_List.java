@@ -2,7 +2,7 @@ package Leetcode;
 import java.util.Stack;
 //leetcode 206
 public class Reverse_Linked_List {
-    //Brute Force
+    //Brute Force using Stack but reverse in terms of data
     //Time and Space Complexity =>  O(2*N) O(N)
     public ListNode reverseList(ListNode head){
         ListNode temp = head;
@@ -12,6 +12,7 @@ public class Reverse_Linked_List {
             temp = temp.next;
         }
         temp = head;
+        //changing data one by one, not changing linksm
         while (temp != null) {
             temp.val = stack.pop();
             temp = temp.next;
@@ -26,13 +27,11 @@ public class Reverse_Linked_List {
         }
         ListNode p=null;
         ListNode q=head;
-        ListNode r=head.next;
         while(q!=null){
+            ListNode r=q.next;
             q.next=p;
             p=q;
             q=r;
-            if(r!=null)
-                r=r.next;
         }
         head=p;
         return head;
