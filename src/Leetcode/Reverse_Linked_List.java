@@ -12,7 +12,7 @@ public class Reverse_Linked_List {
             temp = temp.next;
         }
         temp = head;
-        //changing data one by one, not changing linksm
+        //changing data one by one, not changing links
         while (temp != null) {
             temp.val = stack.pop();
             temp = temp.next;
@@ -38,7 +38,7 @@ public class Reverse_Linked_List {
     }
     // using recursion
     public ListNode reverseList3(ListNode head) {
-        //Time and Space Complexity =>  O(N) O(1)
+        //Time and Space Complexity =>  O(N) O(N)
         if(head==null||head.next==null){
             return head;
         }
