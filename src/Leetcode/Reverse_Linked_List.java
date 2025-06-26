@@ -39,12 +39,13 @@ public class Reverse_Linked_List {
     // using recursion
     public ListNode reverseList3(ListNode head) {
         //Time and Space Complexity =>  O(N) O(1)
-        if (head==null||head.next==null){
+        if(head==null||head.next==null){
             return head;
         }
-        ListNode tail=reverseList2(head.next);
-        head.next.next=head;
+        ListNode newHead=reverseList(head.next);
+        ListNode front=head.next;
+        front.next=head;
         head.next=null;
-        return tail;    //this is new head of our list after reversal that is last node of original list
+        return newHead;
     }
 }
