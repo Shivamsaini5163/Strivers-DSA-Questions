@@ -1,7 +1,9 @@
 package Leetcode;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 //leetcode 141
 class ListNode {
@@ -17,12 +19,12 @@ public class Linked_List_Cycle {
 //    Time and Space Complexity =>    O(N * 2 * log(N)) O(N)
     public static boolean detectLoop(ListNode head) {
         ListNode temp = head;
-        Map<ListNode, Integer> nodeMap = new HashMap<>();
+        Set<ListNode> nodeMap = new HashSet<>();
         while (temp != null) {
-            if (nodeMap.containsKey(temp)) {
+            if (nodeMap.contains(temp)) {
                 return true;
             }
-            nodeMap.put(temp, 1);
+            nodeMap.add(temp);
             temp = temp.next;
         }
         return false;
