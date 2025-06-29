@@ -67,7 +67,9 @@ public class Sort_a_linked_list_of_0s_1s_and_2s {
         zero.next=(oneHead.next!=null)?oneHead.next:twoHead.next;
         one.next=twoHead.next;
         two.next=null;
-        ListNode newHead=(zeroHead.next!=null)?zeroHead.next:twoHead.next;
+        ListNode newHead = (zeroHead.next != null) ? zeroHead.next :
+                (oneHead.next != null) ? oneHead.next :
+                        twoHead.next;
         return newHead;
     }
 }
