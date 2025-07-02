@@ -55,7 +55,7 @@ public class Sort_List {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode fast=head.next;
+        ListNode fast=head.next;    //Note we did not use fast=head because it will not give correct node in case of even length
         ListNode slow=head;
         while(fast!=null&&fast.next!=null){
             fast=fast.next.next;
