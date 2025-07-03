@@ -47,7 +47,7 @@ public class Flattening_a_Linked_List {
         if(root==null||root.next==null){
             return root;
         }
-        Node nextNode=flatten(root.next);
+        Node nextNode=flatten2(root.next);
         root=mergeTwoList(nextNode,root);
         return root;
 
