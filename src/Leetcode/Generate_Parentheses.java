@@ -16,6 +16,7 @@ public class Generate_Parentheses {
         }
         if(open>0){
             //one open bracket used
+
             generate(open-1,closed,list,ans+"(");
         }
         if(closed>0&&closed>open){
