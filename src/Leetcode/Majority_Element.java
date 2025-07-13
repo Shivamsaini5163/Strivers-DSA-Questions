@@ -20,6 +20,21 @@ public class Majority_Element {
             count=(num==candidate)?count+1:count-1; //voting to our candidate if he wins then ++ otherwise --
         }
         return candidate;
+        //easy code same logic
+//        int candidate=nums[0];
+//        int count=1;
+//        for(int i=1;i<nums.length;i++){
+//            if(nums[i]==candidate){
+//                count++;
+//            }else{
+//                count--;
+//            }
+//            if(count==0){
+//                count=1;
+//                candidate=nums[i];
+//            }
+//        }
+//        return candidate;
     }
     //Using hash map but space goes O(N)
     public int majorityElement2(int[] nums) {
