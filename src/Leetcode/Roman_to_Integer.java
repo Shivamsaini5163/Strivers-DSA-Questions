@@ -29,6 +29,7 @@ public class Roman_to_Integer {
         return ans;
     }
     //    Question 2    O(1)    O(1)
+    // leetcode 12
     public static String intToRoman(int num) {
         // Define Roman numeral values and their corresponding symbols
         int[] values =    {1000, 900, 500, 400, 100,  90,  50,  40,  10,   9,   5,   4,   1};
@@ -36,7 +37,7 @@ public class Roman_to_Integer {
 
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < values.length && num > 0; i++) {
+        for (int i = 0; i < values.length; i++) {
             while (num >= values[i]) {
                 sb.append(symbols[i]);
                 num -= values[i];

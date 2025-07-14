@@ -21,7 +21,6 @@ public class Longest_Common_Prefix {
     //Optimized Approach    Time=> O(NlogN)   Space=> O(1)
     public String longestCommonPrefix2(String[] strs) {
         int n=strs.length;
-        int pos=0;
         Arrays.sort(strs);
         String a=strs[0];
         String b=strs[n-1];
