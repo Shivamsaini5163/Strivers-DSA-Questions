@@ -15,10 +15,12 @@ public class Reverse_Words_in_a_String {
     }
     //Using Stack  O(N)   O(N)
     public String reverseWords2(String s) {
-        String[] words = s.trim().split("\\s+");
+        String[] words = s.trim().split(" ");
         Stack<String> stack = new Stack<>();
         for (String word : words) {
-            stack.push(word);
+            if(!word.isEmpty()){
+                stack.push(word);
+            }
         }
 
         StringBuilder sb = new StringBuilder();
