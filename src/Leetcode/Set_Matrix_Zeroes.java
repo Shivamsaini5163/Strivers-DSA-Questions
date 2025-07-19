@@ -20,19 +20,13 @@ public class Set_Matrix_Zeroes {
         }
         for (i = 0; i < matrix.length; i++) {
             for (j = 0; j < matrix[0].length; j++) {
-                if (zeroRows[i]) {
-                    matrix[i][j] = 0;
-                }
-            }
-        }
-        for (j = 0; j < matrix[0].length; j++) {
-            for (i = 0; i < matrix.length; i++) {
-                if (zeroCols[j]) {
+                if (zeroRows[i] || zeroCols[j]) {
                     matrix[i][j] = 0;
                 }
             }
         }
     }
+
 
     //    Or you can use hashset instead
     public void setZeroes2(int[][] matrix) {

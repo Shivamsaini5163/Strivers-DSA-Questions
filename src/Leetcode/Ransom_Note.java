@@ -9,18 +9,16 @@ public class Ransom_Note {
         System.out.println(canConstruct(ransomNote,magazine));
     }
     public static boolean canConstruct(String ransomNote, String magazine) {
-        int[] arr1=new int[26];
-        int[] arr2=new int[26];
-        for(int i=0;i<ransomNote.length();i++){
-            arr1[ransomNote.charAt(i)-'a']++;
+        if(ransomNote.length()>magazine.length()) return false;
+        int[] A=new int[26];
+        for(char ch:magazine.toCharArray()){
+            A[ch-'a']++;
         }
-        for(int i=0;i<magazine.length();i++){
-            arr2[magazine.charAt(i)-'a']++;
+        for(char ch:ransomNote.toCharArray()){
+            A[ch-'a']--;
         }
-        for(int i=0;i<26;i++){
-            if(arr1[i]>arr2[i]){
-                return false;
-            }
+        for(int i:A){
+            if(i<0) return false;
         }
         return true;
     }
