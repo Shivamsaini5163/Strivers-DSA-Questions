@@ -29,7 +29,7 @@ public class Word_Search {
         }
         //check in all four direction
         char c=board[row][col];
-        board[row][col]='!';    //means this block already visited so can't resuse it
+        board[row][col]='!';    //means this block already visited so can't reuses it
         //top direction
         boolean top=solveNext(board,row-1,col,m,n,word,idx+1);
         //right direction

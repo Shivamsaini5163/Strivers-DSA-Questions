@@ -20,6 +20,6 @@ public class Minimum_Size_Subarray_Sum {
                 left++;
             }
         }
-        return ans;
+        return ans == Integer.MAX_VALUE ? 0 : ans;
     }
 }
