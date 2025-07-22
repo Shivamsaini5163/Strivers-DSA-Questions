@@ -13,6 +13,7 @@ public class Count_Sort {
         System.out.println(Arrays.toString(arr));
     }
     //this is unstable version of count sort
+    //Handles only non-negative integers
     private static void count_sort(int[] arr){
         int max=max(arr);
         int idx=0;
@@ -35,6 +36,7 @@ public class Count_Sort {
         return max;
     }
     //this is stable version of count sort
+    //Handles only non-negative integers
     private static void count_sort2(int[] arr){
         int max=Arrays.stream(arr).max().getAsInt();
         int[] count=new int[max+1];
@@ -51,5 +53,25 @@ public class Count_Sort {
         }
         //change the original array
         System.arraycopy(output,0,arr,0,arr.length);
+    }
+    //To Handle negative integers also
+    //Best Approach
+    private static void count_sort3(int[] arr){
+        int max=Arrays.stream(arr).max().getAsInt();
+        int min=Arrays.stream(arr).min().getAsInt();
+        int range=max-min+1;
+        int[] count=new int[range];
+        for(int num:arr){
+            count[num-min]++;
+        }
+        for(int i=1;i<count.length;i++){
+            count[i]+=count[i-1];
+        }
+        int[] output=new int[arr.length];
+        for(int i=arr.length-1;i>=0;i--){
+            output[count[arr[i]-min]-1]=arr[i];
+            count[arr[i]-min]--;
+        }
+        System.arraycopy(output, 0, arr, 0, arr.length);
     }
 }

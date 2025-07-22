@@ -15,14 +15,19 @@ public class Search_in_Rotated_Sorted_Array {
             int mid=l+(h-l)/2;
             if(nums[mid]==k){
                 return mid;
-            }else if(nums[l]<=nums[mid]){
-                if(nums[l]<=k&&nums[mid]>=k){
+            }
+            //check if our mid reach on first sorted half
+            else if(nums[mid]>=nums[l]){
+                //we make sure that k not lies in second sorted half and discard second half =>  nums[l]<=k
+                if(nums[l]<=k&&nums[mid]>k){
                     h=mid-1;
                 }else{
                     l=mid+1;
                 }
-            }else{
-                if(nums[mid]<=k&&nums[h]>=k){
+            }//check if our mid reach on second sorted half
+            else{
+                //we make sure that k not lies in first sorted half and discard first half => nums[h]>=k
+                if(nums[h]>=k&&nums[mid]<k){
                     l=mid+1;
                 }else{
                     h=mid-1;
