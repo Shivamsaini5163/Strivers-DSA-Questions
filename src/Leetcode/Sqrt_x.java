@@ -14,7 +14,7 @@ public class Sqrt_x {
         }
         return ans;
     }
-    //Optimised Approach
+    //Optimised Approach (Binary Search)
     public int mySqrt2(int n) {
         long l=0;
         long h=n;

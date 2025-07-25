@@ -25,4 +25,6 @@ public class Count_set_bits {
         }
         return count;
     }
+    //Optimal Approach O(logN) use DP
+
 }
