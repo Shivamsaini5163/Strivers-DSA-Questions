@@ -27,4 +27,30 @@ public class Trapping_Rain_Water {
         }
         return ans;
     }
+    //Optimized O(N)   O(1)     Two Pointer Approach
+    public int trap2(int[] height) {
+        int n = height.length;
+        int left = 0, right = n - 1;
+        int leftMax = 0, rightMax = 0;
+        int water = 0;
+
+        while (left <= right) {
+            if (height[left] <= height[right]) {
+                if (height[left] >= leftMax) {
+                    leftMax = height[left];
+                } else {
+                    water += leftMax - height[left];
+                }
+                left++;
+            } else {
+                if (height[right] >= rightMax) {
+                    rightMax = height[right];
+                } else {
+                    water += rightMax - height[right];
+                }
+                right--;
+            }
+        }
+        return water;
+    }
 }
