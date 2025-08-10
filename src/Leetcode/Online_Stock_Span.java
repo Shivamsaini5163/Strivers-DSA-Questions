@@ -9,7 +9,6 @@ public class Online_Stock_Span {
         public StockSpanner() {
             stack=new Stack<>();
         }
-
         public int next(int price) {
             int ans=1;
             //  monotonically decreasing stack
