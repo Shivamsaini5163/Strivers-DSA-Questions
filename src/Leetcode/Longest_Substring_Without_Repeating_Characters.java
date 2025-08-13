@@ -1,14 +1,37 @@
 package Leetcode;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 //leetcode 3
-//Time and Space Complexity =>  O(N) O(N)
+//Time and Space Complexity =>  O(N^2) O(N)
 public class Longest_Substring_Without_Repeating_Characters {
-    public static void main(String[] args) {
-        String s="pwwkew";
-        System.out.println(lengthOfLongestSubstring(s));
+    public int lengthOfLongestSubstring(String str) {
+        if(str.length()==0)
+            return 0;
+        int maxans = 0;
+        for (int i = 0; i < str.length(); i++) // outer loop for traversing the string
+        {
+            Set< Character > se = new HashSet< >();
+            for (int j = i; j < str.length(); j++) // nested loop for getting different
+            // string starting with str[i]
+            {
+                if (se.contains(str.charAt(j))) // if element if found so mark it as ans
+                // and break from the loop
+                {
+                    maxans = Math.max(maxans, j - i);
+                    break;
+                }
+                se.add(str.charAt(j));
+            }
+            // Ensure we update when no duplicate is found
+            maxans = Math.max(maxans, se.size());
+        }
+        return maxans;
     }
-    public static int lengthOfLongestSubstring(String s) {
+    //Time and Space Complexity =>  O(N) O(N)
+    public static int lengthOfLongestSubstring2(String s) {
         int ans=0;
         int left=0;
         int right=0;
