@@ -18,4 +18,28 @@ public class Binary_Subarrays_With_Sum {
         }
         return ans;
     }
+    //Optimize Approach
+    //Time and Space Complexity =>  O(N) O(1)
+    public int numSubarraysWithSum2(int[] nums, int goal) {
+        return numSubarraysLessOrEqualThanSum(nums,goal)-numSubarraysLessOrEqualThanSum(nums,goal-1);
+    }
+    int numSubarraysLessOrEqualThanSum(int[] nums,int goal){
+        if(goal<0){
+            return 0;
+        }
+        int r=0;
+        int l=0;
+        int sum=0;
+        int cnt=0;
+        while(r<nums.length){
+            sum+=nums[r];
+            while(sum>goal){
+                sum-=nums[l];
+                l++;
+            }
+            cnt+=r-l+1;
+            r++;
+        }
+        return cnt;
+    }
 }

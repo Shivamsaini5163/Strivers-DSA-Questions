@@ -37,4 +37,27 @@ public class Count_Number_of_Nice_Subarrays {
         }
         return ans;
     }
+    //Best Solution     O(N) O(1) Same Approach used in Leetcode 930 Binary Subarrays With Sum
+    public int numberOfSubarrays3(int[] nums, int goal) {
+        return numSubarraysLessOrEqualThanSum(nums,goal)-numSubarraysLessOrEqualThanSum(nums,goal-1);
+    }
+    int numSubarraysLessOrEqualThanSum(int[] nums,int goal){
+        if(goal<0){
+            return 0;
+        }
+        int r=0;
+        int l=0;
+        int sum=0;
+        int cnt=0;
+        while(r<nums.length){
+            sum+=nums[r]%2;
+            while(sum>goal){
+                sum-=nums[l]%2;
+                l++;
+            }
+            cnt+=r-l+1;
+            r++;
+        }
+        return cnt;
+    }
 }
