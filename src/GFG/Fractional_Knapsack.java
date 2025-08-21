@@ -2,7 +2,7 @@ package GFG;
 
 import java.util.Arrays;
 
-//  Complexity =>   O(n log n)  O(1)
+//  Complexity =>   O(n log n)  O(n)
 public class Fractional_Knapsack {
     // Helper class to store item info
     static class Item{
