@@ -1,8 +1,23 @@
 package Leetcode;
 //leetcode 45
-//Time and Space Complexity => O(N) O(1)
 public class Jump_Game_II {
-    public int jump(int[] arr) {
+//    Brute Force
+    //Time and Space Complexity => O(N^N) O(N)
+    public int jump(int[] nums) {
+        return fun(0,0,nums);
+    }
+    int fun(int ind,int jumps,int[] nums){
+        if(ind>=nums.length-1){
+            return jumps;
+        }
+        int minjump=Integer.MAX_VALUE;
+        for(int i=1;i<=nums[ind];i++){
+            minjump=Math.min(minjump,fun(ind+i,jumps+1,nums));
+        }
+        return minjump;
+    }
+    //Time and Space Complexity => O(N) O(1)
+    public int jump2(int[] arr) {
         int n=arr.length;
         if (n <= 1) return 0; // No jumps needed if array has one element
         if (arr[0] == 0) return -1; // Cannot move forward if the first element is 0
