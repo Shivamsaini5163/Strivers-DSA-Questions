@@ -16,7 +16,7 @@ public class Minimum_Platforms {
         }
         return ans;
     }
-    //Optimize Approach O(N) using greedy approach
+    //Optimize Approach O(NlogN) using greedy approach
     public int findPlatform2(int[] arr, int[] dep) {
         int n = arr.length;
         Arrays.sort(arr);

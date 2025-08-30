@@ -2,6 +2,7 @@ package GFG;
 
 import java.util.Arrays;
 
+//Complexity =>   O(NlogN)    O(1)
 public class Shortest_Job_first {
     static int solve(int[] bt) {
         Arrays.sort(bt);
