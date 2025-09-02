@@ -40,31 +40,29 @@ public class Merge_Intervals {
         return merged.toArray(new int[merged.size()][]);
     }
     //Optimized Approach   O(NlogN)   O(N)
-    public static int[][] merge2(int[][] arr) {
-        List<List<Integer>> ans = new ArrayList<>();
-        int n = arr.length;
-        Arrays.sort(arr,(a,b)->a[0]-b[0]);
-        for (int i = 0; i < n; i++) {
-            // if the current interval does not
-            // lie in the last interval:
-            if (ans.isEmpty() || arr[i][0] > ans.get(ans.size() - 1).get(1)) {
-                ans.add(Arrays.asList(arr[i][0], arr[i][1]));
-            }
-            // if the current interval
-            // lies in the last interval:
-            else {
-                ans.get(ans.size() - 1).set(1,Math.max(ans.get(ans.size() - 1).get(1), arr[i][1]));
-            }
-        }
-        //Converting it
-        int M=ans.size();
-        int N=ans.get(0).size();
-        int[][] res=new int[M][N];
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                res[i][j]=ans.get(i).get(j);
+    public static int[][] merge2(int[][] intervals) {
+        if (intervals.length == 0) return new int[0][0];
+
+        // Step 1: sort by start time
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+
+        List<int[]> result = new ArrayList<>();
+        int[] current = intervals[0];
+        result.add(current);
+
+        // Step 2: merge overlapping intervals
+        for (int[] interval : intervals) {
+            if (interval[0] <= current[1]) {
+                // overlap → merge
+                current[1] = Math.max(current[1], interval[1]);
+            } else {
+                // no overlap → new interval
+                current = interval;
+                result.add(current);
             }
         }
-        return res;
+
+        // Step 3: convert List<int[]> → int[][]
+        return result.toArray(new int[result.size()][]);
     }
 }
