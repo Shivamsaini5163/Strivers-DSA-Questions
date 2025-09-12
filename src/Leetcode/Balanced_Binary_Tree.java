@@ -1,5 +1,6 @@
 package Leetcode;
 
+//leetcode 110
 public class Balanced_Binary_Tree {
 //    Complexity =>   O(N^2)    O(N)
     public boolean isBalanced(TreeNode root) {
@@ -33,10 +34,10 @@ public class Balanced_Binary_Tree {
             return 0;
         }
         int leftHeight = getHeight(root.left);
-        if (leftHeight == -1) return -1; // left subtree unbalanced
 
         int rightHeight = getHeight(root.right);
-        if (rightHeight == -1) return -1; // right subtree unbalanced
+
+        if (leftHeight == -1 || rightHeight == -1) return -1; // check subtree unbalanced
 
         if (Math.abs(leftHeight - rightHeight) > 1) return -1; // not balanced
 
