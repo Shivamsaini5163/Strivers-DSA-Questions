@@ -29,6 +29,12 @@ public class Jump_Game_II {
             for(int i=l;i<=r;i++){
                 farthest=Math.max(i+arr[i],farthest);
             }
+//            If after checking all indices from l to r, the farthest we can reach (maxReach) is not beyond r,
+//            then we are stuck — it’s impossible to move forward, so return -1.
+            if (farthest <= r) {
+                // Can't move forward
+                return -1;
+            }
             l=r+1;
             r=farthest;
             jumps++;

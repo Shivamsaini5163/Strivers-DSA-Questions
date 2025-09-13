@@ -7,25 +7,27 @@ public class Minimum_Jumps {
     }
 
     public static int minJumps(int[] arr) {
-        int n = arr.length;
+        int n=arr.length;
         if (n <= 1) return 0; // No jumps needed if array has one element
         if (arr[0] == 0) return -1; // Cannot move forward if the first element is 0
-
-        int jumps = 1; // At least one jump needed
-        int maxReach = arr[0]; // Farthest index that can be reached
-        int steps = arr[0]; // Steps we can still take
-
-        for (int i = 1; i < n; i++) {
-            if (i == n - 1) return jumps; // Reached the end of the array
-            maxReach = Math.max(maxReach, i + arr[i]);
-            steps--;
-
-            if (steps == 0) {
-                jumps++;
-                if (i >= maxReach) return -1; // Cannot move forward
-                steps = maxReach - i;
+        int jumps=0;
+        int l=0;
+        int r=0;
+        int farthest=0;
+        while(r<n-1){
+            for(int i=l;i<=r;i++){
+                farthest=Math.max(i+arr[i],farthest);
             }
+//          If after checking all indices from l to r, the farthest we can reach (maxReach) is not beyond r,
+//          then we are stuck — it’s impossible to move forward, so return -1.
+            if (farthest <= r) {
+                // Can't move forward
+                return -1;
+            }
+            l=r+1;
+            r=farthest;
+            jumps++;
         }
-        return -1; // If end isn't reached
+        return jumps;
     }
 }
