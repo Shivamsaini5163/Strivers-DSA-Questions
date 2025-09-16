@@ -18,7 +18,7 @@ public class Subarray_Sum_Equals_K {
         // so it was not adding in ans to avoid this problem we include 0 one time
         for (int i = 0; i < nums.length; i++) {
             sum=sum+nums[i];
-            if (map.containsKey(sum-k)){
+            if (map.containsKey(sum-k)){    // search for sum-k so we can eliminate the extra part which have to remove from sum to get k value
                 ans+=map.get(sum-k);
             }
             map.put(sum, map.getOrDefault(sum, 0) + 1);
