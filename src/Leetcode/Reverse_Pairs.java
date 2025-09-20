@@ -35,7 +35,6 @@ public class Reverse_Pairs {
         ArrayList<Integer> temp=new ArrayList<>();
         int left=l;
         int right=mid+1;
-        int cnt = 0;
         while(left<=mid&&right<=h){
             if(arr[left]<=arr[right]){
                 temp.add(arr[left]);

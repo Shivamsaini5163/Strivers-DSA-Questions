@@ -1,6 +1,7 @@
 package Leetcode;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 //leetcode 442
 public class Find_All_Duplicates_in_an_Array {
@@ -27,5 +28,17 @@ public class Find_All_Duplicates_in_an_Array {
         int temp=arr[a];
         arr[a]=arr[b];
         arr[b]=temp;
+    }
+//    using HashSet
+    public List<Integer> findDuplicates2(int[] nums) {
+        HashSet<Integer> set=new HashSet<>();
+        List<Integer> list=new ArrayList<>();
+        for(int num:nums){
+            if(set.contains(num)){
+                list.add(num);
+            }
+            set.add(num);
+        }
+        return list;
     }
 }
