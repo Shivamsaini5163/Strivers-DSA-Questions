@@ -48,7 +48,7 @@ public class Find_Missing_and_Repeated_Values {
             for (int j = 0; j < n; j++) {
                 int num = grid[i][j];
                 actualSum += num;
-                actualSumSq += num * num;
+                actualSumSq += (long) num * num;
             }
         }
 
