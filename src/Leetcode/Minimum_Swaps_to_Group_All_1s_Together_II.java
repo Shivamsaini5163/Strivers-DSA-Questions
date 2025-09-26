@@ -52,7 +52,7 @@ public class Minimum_Swaps_to_Group_All_1s_Together_II {
         return numberOfZeroes;
     }
 
-    //    Space Complexity O(N)
+    //    Space Complexity O(1)
     //    Use modulo instead of double array simulation
     public int minSwaps2(int[] arr) {
         int totalOnes = 0;

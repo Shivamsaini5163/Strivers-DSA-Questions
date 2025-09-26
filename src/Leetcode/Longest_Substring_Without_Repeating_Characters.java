@@ -5,8 +5,36 @@ import java.util.HashSet;
 import java.util.Set;
 
 //leetcode 3
-//Time and Space Complexity =>  O(N^2) O(N)
 public class Longest_Substring_Without_Repeating_Characters {
+    // Best Code, use this one
+    public int lengthOfLongestSubstring3(String s) {
+        // HashMap to store the last index of each character
+        HashMap<Character, Integer> map = new HashMap<>();
+        int n = s.length();
+
+        int left = 0;  // Start of the sliding window
+        int ans = 0;   // Stores the length of longest substring
+
+        // Iterate over each character in the string
+        for (int right = 0; right < n; right++) {
+            char c = s.charAt(right);
+
+            // If the character is already in the current window
+            if (map.containsKey(c)) {
+                // Move 'left' just past the previous occurrence of c
+                // Math.max ensures left never moves backward
+                left = Math.max(left, map.get(c) + 1);
+            }
+
+            // Update the last seen index of the current character
+            map.put(c, right);
+
+            // Update the maximum length of substring found so far
+            ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
+    }
+    //Time and Space Complexity =>  O(N^2) O(N)
     public int lengthOfLongestSubstring(String str) {
         if(str.length()==0)
             return 0;
