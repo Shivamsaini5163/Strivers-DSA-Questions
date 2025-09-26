@@ -33,7 +33,7 @@ public class Group_Anagrams {
             //Now generate pattern
             StringBuilder sb=new StringBuilder();
             for(int i:count){
-                sb.append('#');
+                sb.append('#'); // Using # ensures counts like [1,11] and [11,1] don’t collide
                 sb.append(i);
             }
             String key=new String(sb);

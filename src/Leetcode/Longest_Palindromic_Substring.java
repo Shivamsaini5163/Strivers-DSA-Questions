@@ -39,7 +39,7 @@ public class Longest_Palindromic_Substring {
             int x=expandFromCenter(i,i,s);    // for odd length
             int y=expandFromCenter(i,i+1,s);    // for even length
             int len=Math.max(x,y);
-            if(end-start<len){
+            if(end-start+1<len){
                 start=i-(len-1)/2;
                 end=i+len/2;
             }
