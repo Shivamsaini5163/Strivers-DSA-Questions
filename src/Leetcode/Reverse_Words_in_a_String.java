@@ -5,13 +5,17 @@ import java.util.Stack;
 public class Reverse_Words_in_a_String {
     //Using String Methods  O(N)   O(N)
     public String reverseWords(String s) {
-        String[] arr=s.split(" ");
-        StringBuilder res=new StringBuilder();
-        for(int i=arr.length-1;i>=0;i--)
-        { if(!arr[i].isEmpty())
-            res.append(arr[i]).append(" ");
+        String[] words=s.split("\\s+");
+        StringBuilder sb=new StringBuilder();
+        int n=words.length;
+        if(n==0) return s;
+        for(int i=n-1;i>=0;i--){
+            if (!words[i].isEmpty()) {           // skip empty strings from extra space
+                if (sb.length() > 0) sb.append(" ");  // add space only between words
+                sb.append(words[i]);
+            }
         }
-        return res.toString().trim();
+        return sb.toString();
     }
     //Using Stack  O(N)   O(N)
     public String reverseWords2(String s) {
@@ -63,10 +67,10 @@ public class Reverse_Words_in_a_String {
     String cleanSpaces(char[]arr,int n){
         int i=0,j=0;
         while(j<n){
-            while(j<n&&arr[j]==' ') j++;    //skip spaces
-            while(j<n&&arr[j]!=' ') arr[i++]=arr[j++];    //skip spaces
-            while(j<n&&arr[j]==' ') j++;    //skip spaces
-            if (j < n) arr[i++] = ' '; // add one space if needed
+            while(j<n&&arr[j]==' ') j++;    // skip leading spaces before a word
+            while(j<n&&arr[j]!=' ') arr[i++]=arr[j++];    /// copy word
+            while(j<n&&arr[j]==' ') j++;    // skip spaces after the word
+            if (j < n) arr[i++] = ' '; // add one space if another word exists
         }
         return new String(arr, 0, i);
     }
