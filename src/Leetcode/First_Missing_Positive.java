@@ -1,9 +1,23 @@
 package Leetcode;
+
+import java.util.HashSet;
+
 //leetcode 41
 //HARD
-//using cyclic sort but no hint is given in question like range
 public class First_Missing_Positive {
-    public int firstMissingPositive(int[] arr) {
+    public int firstMissingPositive(int[] nums) {
+        HashSet<Integer> set=new HashSet<>();
+        int n=nums.length;
+        for(int num:nums){
+            set.add(num);
+        }
+        for(int i=1;i<=n;i++){
+            if(!set.contains(i)) return i;
+        }
+        return n+1;
+    }
+    //using cyclic sort but no hint is given in question like range
+    public int firstMissingPositive2(int[] arr) {
         int i=0;
         while (i<arr.length){
             int correctIdx=arr[i]-1;

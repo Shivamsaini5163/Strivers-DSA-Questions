@@ -6,7 +6,6 @@ public class String_to_Integer_atoi {
     public int myAtoi(String s) {
         int i=0;
         int sign=1;
-        StringBuilder sb=new StringBuilder();
         long result=0;
         while(i<s.length()&&s.charAt(i)==' ') i++; //Skip whitespace
         if(i<s.length()&&s.charAt(i)=='+'){        //Checking Sign
