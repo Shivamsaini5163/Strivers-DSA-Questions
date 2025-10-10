@@ -4,7 +4,34 @@ import java.util.Stack;
 
 //leetcode 84
 public class Largest_Rectangle_in_Histogram {
+    // Brute Force O(N^2) not good!
     public int largestRectangleArea(int[] heights) {
+        int n = heights.length;
+        int maxArea = 0;
+
+        for (int i = 0; i < n; i++) {
+            int height = heights[i];
+
+            // Expand left
+            int left = i;
+            while (left > 0 && heights[left - 1] >= height) {
+                left--;
+            }
+
+            // Expand right
+            int right = i;
+            while (right < n - 1 && heights[right + 1] >= height) {
+                right++;
+            }
+
+            int width = right - left + 1;
+            maxArea = Math.max(maxArea, height * width);
+        }
+
+        return maxArea;
+    }
+    // More Better Approach using Stack
+    public int largestRectangleArea2(int[] heights) {
         int n=heights.length;
         int[] nse=nextSmallerElement(heights,n);
         int[] pse=previousSmallerElement(heights,n);
@@ -39,8 +66,8 @@ public class Largest_Rectangle_in_Histogram {
         }
         return pse;
     }
-    //  More Better Approach
-    public int largestRectangleArea2(int[] heights) {
+    //  Optimize Approach
+    public int largestRectangleArea3(int[] heights) {
         Stack<Integer> st=new Stack<>();
         int maxArea=0;
         int n=heights.length;
