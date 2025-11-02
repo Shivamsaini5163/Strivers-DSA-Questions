@@ -16,6 +16,7 @@ public class Longest_Subarray_with_Sum_K {
             if(map.containsKey(sum-k)){
                 maxLen=Math.max(maxLen,i-map.get(sum-k));
             }
+            // store first occurrence only
             if(!map.containsKey(sum)){
                 map.put(sum,i);
             }

@@ -4,6 +4,17 @@ import java.util.HashSet;
 import java.util.Set;
 //leetcode 160
 public class Intersection_of_Two_Linked_Lists {
+    //Best Solution and very optimize
+    public ListNode getIntersectionNode4(ListNode head1, ListNode head2) {
+        ListNode a = head1, b = head2;
+
+        while (a != b) {
+            a = (a == null) ? head2 : a.next;
+            b = (b == null) ? head1 : b.next;
+        }
+
+        return a; // Intersection node or null
+    }
     //Brute Force       O(M × N)        O(1)
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode tempA=headA;

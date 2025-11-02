@@ -54,7 +54,7 @@ public class Copy_List_with_Random_Pointer {
         while(temp!=null){
             Node copy=temp.next;
             if(temp.random!=null){
-                copy.random=temp.random.next;
+                copy.random=temp.random.next; // most important part
             }else{
                 copy.random=null;
             }
