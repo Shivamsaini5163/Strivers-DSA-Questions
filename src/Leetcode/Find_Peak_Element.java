@@ -1,7 +1,7 @@
 package Leetcode;
 //leetcode 162
 //Time and Space Complexity =>    O(logN) O(1)
-public class find_Peak_Element {
+public class Find_Peak_Element {
     public int findPeakElement(int[] arr) {
         int s=0;
         int e=arr.length-1;

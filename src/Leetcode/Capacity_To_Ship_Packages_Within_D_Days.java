@@ -11,15 +11,14 @@ public class Capacity_To_Ship_Packages_Within_D_Days {
         }
         while(l<=h){
             int mid=l+(h-l)/2;
-            if(isPossible(mid,weights,days)) h=mid-1;
-            else l=mid+1;
+            if(isPossible(mid,weights,days)) h=mid-1;   // try to minimize capacity more
+            else l=mid+1;   // increase capacity
         }
         return l;
     }
     private boolean isPossible(int capacity,int[] weights,int days){
         int dayUsed = 1;
         int load = 0;
-
         for (int w : weights) {
             load += w;
             if (load > capacity) {   // exceed current day's capacity
